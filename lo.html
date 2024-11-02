@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Your existing CSS */
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content -->
+
+    <!-- Login Page Content -->
+    <div class="login-container" style="font-family: 'Times New Roman', Times, serif;">
+        <div class="login-form">
+            <center>
+                <h4>LOGIN</h4>
+            </center>
+            <form onsubmit="return validateForm()">
+                <div style="margin: 15px;">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <small id="emailError" style="color: red; display: none;">Please enter a valid email address.</small>
+                </div>
+                <div style="margin: 15px;">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <small id="passwordError" style="color: red; display: none;">Please enter a password.</small>
+                </div>
+                <center><button type="submit" class="btn btn-primary" style="width: 90%;">Login</button></center>
+            </form>
+        </div>
+    </div>
+
+    <!-- Your existing footer content -->
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var emailError = document.getElementById("emailError");
+            var passwordError = document.getElementById("passwordError");
+
+            var isValid = true;
+
+            // Reset error messages
+            emailError.style.display = "none";
+            passwordError.style.display = "none";
+
+            // Email validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.trim() === "") {
+                passwordError.style.display = "block";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
